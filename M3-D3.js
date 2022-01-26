@@ -8,12 +8,8 @@ const load1 = () => {
     .then((response) => response.json())
     .then((respdata) =>{
       console.log(respdata)
-      const svg = document.querySelectorAll('svg')
-      for (let i = 0; i < svg.length; i++) {
-        
-        svg[i].classList.add('d-none')
-      }
-      const row = document.querySelector("body > main > div > div > div")
+      
+      const newrow = document.querySelector(".row2")
       for (let i = 0; i < respdata.photos.length; i++) {
         
         
@@ -23,7 +19,7 @@ const load1 = () => {
          
          <div class="card mb-4 shadow-sm">
          <img src="${respdata.photos[i].src.small}" alt="">
-         
+        
          <div class="card-body">
            <p class="card-text">
              This is a wider card with supporting text below as a natural
@@ -42,7 +38,7 @@ const load1 = () => {
                </button>
                <button
                  type="button"
-                 class="btn btn-sm btn-outline-secondary" onclick="hide()"
+                 class="btn btn-sm btn-outline-secondary" onclick="hide(event)"
                >
                 hide
                </button>
@@ -54,9 +50,9 @@ const load1 = () => {
             
          `
          
-        row.appendChild(newDiv)
+        newrow.appendChild(newDiv)
         
-      
+        
       
        }
        
@@ -74,3 +70,6 @@ const load1 = () => {
 
 
 const hide = event => event.target.closest('.card').remove()
+
+
+
